@@ -21,8 +21,13 @@ class Obstacle_manager:
             if game.player.dino_rect.colliderect(obstacle.rect):
                 print("collision")
                 pygame.time.delay(1000)
+                game.game_speed += 1
                 game.playing = False
+                break
 
     def draw(self, screen):
         for obstacle in self.obstacles:
             obstacle.draw(screen)
+
+    def reset_obstcles(self):
+        self.obstacles = []        
